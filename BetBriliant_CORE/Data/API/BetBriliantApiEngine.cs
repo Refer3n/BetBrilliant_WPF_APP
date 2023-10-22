@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace BetBriliant_CORE.Data.API
 {
-    public class BetBriliant_Api_Engine : IApi
+    public class BetBriliantApiEngine : IApi
     {
         private readonly string _baseUri = "https://api.the-odds-api.com/v4/sports/";
         private readonly string _apiKey = "da8cccb38cc3356e7cccea4fc30a1cc8";
         private readonly HttpClient _client;
 
-        public BetBriliant_Api_Engine()
+        public BetBriliantApiEngine()
         {
             _client = new HttpClient();
         }
