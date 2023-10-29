@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BetBriliant_CORE.Data.API
+namespace BetBriliant_DATA.API
 {
     public interface IApi
     {

@@ -1,4 +1,4 @@
-﻿namespace BetBriliant_CORE.Domain.Models
+﻿namespace BetBriliant_DATA.API.Models
 {
     public class Outcome
     {

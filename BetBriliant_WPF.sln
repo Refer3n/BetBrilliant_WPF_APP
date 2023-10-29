@@ -5,11 +5,19 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetBriliant_APP", "BetBriliant_APP", "{367BB411-CE63-4D8B-8332-903A6EC0DC32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetBriliant", "BetBriliant\BetBriliant.csproj", "{806345B1-AA4A-46A7-A1EC-5E24B6A0BDCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetBriliant", "BetBriliant\BetBriliant.csproj", "{806345B1-AA4A-46A7-A1EC-5E24B6A0BDCE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetBriliant_CORE", "BetBriliant_CORE", "{E692B0A6-5627-4379-A416-C6FB9F3DD3DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetBriliant_CORE", "BetBriliant_CORE\BetBriliant_CORE.csproj", "{D5FA9541-9D0B-4E81-ADD9-609266A288B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetBriliant_CORE", "BetBriliant_CORE\BetBriliant_CORE.csproj", "{D5FA9541-9D0B-4E81-ADD9-609266A288B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetBriliant_DATA", "BetBriliant_DATA", "{28905BC0-998D-435D-ADBB-F9C182C77DAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetBriliant_DATA", "BetBriliant_DATA\BetBriliant_DATA.csproj", "{36798630-9C18-4858-A925-A421B669FAA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetBriliant_Domain", "BetBriliant_Domain", "{5A56294D-D507-4859-98EE-8A6214906B71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetBriliant_Domain", "BetBriliant_Domain\BetBriliant_Domain.csproj", "{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +33,14 @@ Global
 		{D5FA9541-9D0B-4E81-ADD9-609266A288B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5FA9541-9D0B-4E81-ADD9-609266A288B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5FA9541-9D0B-4E81-ADD9-609266A288B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36798630-9C18-4858-A925-A421B669FAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36798630-9C18-4858-A925-A421B669FAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36798630-9C18-4858-A925-A421B669FAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36798630-9C18-4858-A925-A421B669FAA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{806345B1-AA4A-46A7-A1EC-5E24B6A0BDCE} = {367BB411-CE63-4D8B-8332-903A6EC0DC32}
 		{D5FA9541-9D0B-4E81-ADD9-609266A288B8} = {E692B0A6-5627-4379-A416-C6FB9F3DD3DB}
+		{36798630-9C18-4858-A925-A421B669FAA3} = {28905BC0-998D-435D-ADBB-F9C182C77DAC}
+		{0A604E73-DFE7-413D-A4DA-B6560DD1D2FB} = {5A56294D-D507-4859-98EE-8A6214906B71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77769502-95F0-40BA-AB29-763C43EF7F8E}

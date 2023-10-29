@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BetBriliant_CORE.Domain.Models
+namespace BetBriliant_DATA.API.Models
 {
     public class Event
     {
