@@ -4,46 +4,81 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BetBriliant_CORE.Pages.HomeScreen"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="850">
+             d:DesignHeight="450" d:DesignWidth="850" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+
+        <Style x:Key="NoHorizontalScrollListView" TargetType="ListView">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
+
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.7*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding Sports}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+
+        <materialDesign:Card Grid.RowSpan="2" Background="#10FFFFFF">
+            <ListView x:Name="sportListView" VerticalContentAlignment="Stretch" Style="{StaticResource NoHorizontalScrollListView}"
+                      HorizontalContentAlignment="Stretch" SelectionChanged="sportListView_SelectionChanged">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="5" Columns="1"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Viewbox Margin="10">
+                            <Image Source="{Binding Image}"  Width="32" Height="32"/>
+                        </Viewbox>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Row="0" Grid.Column="1" UniformCornerRadius="25" Background="#10FFFFFF">
+            <ListView x:Name="leagueListView" Style="{StaticResource NoHorizontalScrollListView}" 
+                  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Viewbox Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Logo}" Width="80" Height="80" Stretch="Uniform"/>
+                                <Image Source="{Binding CountryFlag}" Width="16" Height="16" Margin="5"/>
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Viewbox>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </materialDesign:Card>
+
+        <ListBox Grid.Column="2" x:Name="test">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <materialDesign:Card Background="Transparent" Padding="8" Width="100" Height="100">
-                        <Image Source="{Binding Image}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </materialDesign:Card>
+                    <Viewbox>
+                        <Image Source="{Binding Logo}" Height="64" Width="64"/>
+                    </Viewbox>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
 
-        <ListBox Grid.Column="1" ItemsSource="{Binding Championships}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <Grid Grid.Column="2">
-
-        </Grid>
-
-        <ListBox Grid.Column="3" ItemsSource="{Binding Events}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
     </Grid>
 </UserControl>

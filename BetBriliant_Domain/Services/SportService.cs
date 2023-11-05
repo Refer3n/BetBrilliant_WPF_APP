@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BetBriliant_DATA.API.Models;
 using BetBriliant_Domain.Entities;
+using BetBriliant_Domain.Factories;
 using BetBriliant_Domain.Providers;
+using BetBriliant_Enum;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,55 +12,48 @@ namespace BetBriliant_Domain.Services
 {
     public class SportService
     {
-        private readonly SportProvider _provider;
+        private readonly SportProviderFactory _providerFactory;
         private IMapper _mapper;
-
-        private static List<SportEntity> sports = new List<SportEntity>();
 
         public SportService()
         {
-            _provider = new SportProvider();
+            _providerFactory = new SportProviderFactory();
             CreateMapper();
         }
 
-        public async Task<List<SportEntity>> GetSportIconsAsync()
+        public async Task<List<League>> GetLeaguesAsync(SportType sportType)
         {
-            if (sports.Count == 0)
-            {
-                await GetAllSportsAsync();
-            }
+            var provider = _providerFactory.CreateSportProvider(sportType);
 
-            var uniqueSports = sports
-                .GroupBy(sport => sport.Group)
-                .Select(group => group.First())
-                .ToList();
+            var leagues = await provider.GetSportLeaguesAsync();
 
-            return uniqueSports;
+            var imageLoadingTasks = leagues.Select(league => LoadImagesAsync(league));
+
+            await Task.WhenAll(imageLoadingTasks);
+
+            var result = _mapper.Map<List<LeagueEntity>>(leagues);
+
+            return leagues.Take(10).ToList();
         }
 
-        private async Task GetAllSportsAsync()
+        private async Task LoadImagesAsync(League league)
         {
-            var newSports = await _provider.GetSportsAsync();
+            if (!string.IsNullOrEmpty(league.LogoUrl))
+            {
+                league.Logo = await ImageProvider.GetImageByUrlAsync(league.LogoUrl);
+            }
 
-            var updatedSports = newSports
-                .Select(sport =>
-                {
-                    var sportDto = _mapper.Map<SportEntity>(sport);
-                    sportDto.Image = ImageProvider.GetImageByGroup(sport.Group);
-                    return sportDto;
-                })
-                .Where(sport => sport.Image != null)
-                .ToList();
-
-            sports = updatedSports;
+            if (!string.IsNullOrEmpty(league.CountryCode))
+            {
+                league.CountryFlag = await ImageProvider.GetFlagByCodeAsync(league.CountryCode);
+            }
         }
 
         private void CreateMapper()
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Sport, SportEntity>();
-                cfg.CreateMap<SportEntity, Sport>();
+                cfg.CreateMap<League, LeagueEntity>();
             });
 
             _mapper = config.CreateMapper();

@@ -10,8 +10,8 @@
     <None Remove="Images\AmericanFootballIcon.png" />
     <None Remove="Images\BaseballIcon.png" />
     <None Remove="Images\BasketballIcon.png" />
+    <None Remove="Images\FootballIcon.png" />
     <None Remove="Images\IceHockeyIcon.png" />
-    <None Remove="Images\SoccerIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,19 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\AmericanFootballIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\BaseballIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\BasketballIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\IceHockeyIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\SoccerIcon.png">
+    <Resource Include="Images\FootballIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

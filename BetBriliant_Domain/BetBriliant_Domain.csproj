@@ -9,10 +9,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Svg.Skia" Version="1.0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BetBriliant_DATA\BetBriliant_DATA.csproj" />
+    <ProjectReference Include="..\BetBriliant_Enum\BetBriliant_Enum.csproj" />
   </ItemGroup>
 
 </Project>
