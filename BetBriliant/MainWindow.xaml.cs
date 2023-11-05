@@ -1,5 +1,6 @@
 ﻿using BetBriliant_CORE.Navigator;
 using BetBriliant_CORE.Pages.HomeScreen;
+using BetBriliant_Domain.Services;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,7 +15,7 @@ namespace BetBriliant
         {
             InitializeComponent();
             NavigatorObject.NavigateRequested += NavigateRequestedHandler;
-            NavigatorObject.Switch(new HomeScreen());
+            NavigatorObject.Switch(new HomeScreen(new SportService()));
         }
 
         private void NavigateRequestedHandler(object sender, UserControl page)
